@@ -1,0 +1,64 @@
+workflows:
+  android-release:
+    name: Android APK Release Build
+    instance_type: mac_mini_m1
+    
+    environment:
+      java: 17
+      android_sdk: 34
+      ndk: 26.1.10909125
+      vars:
+        PACKAGE_NAME: "com.vpnapp"
+        GRADLE_OPTS: "-Xmx3072m"
+    
+    triggering:
+      events:
+        - push
+        - pull_request
+      branch:
+        include_patterns:
+          - main
+          - release/*
+    
+    scripts:
+      - name: Set up signing config
+        script: |
+          echo $FCI_KEYSTORE_PATH
+          echo $KEYSTORE_PASSWORD > /tmp/keystore.pwd
+          echo $KEY_ALIAS > /tmp/key_alias.txt
+          echo $KEY_PASSWORD > /tmp/key.pwd
+      
+      - name: Build Release APK
+        script: |
+          ./gradlew assembleRelease \
+            -Pandroid.injected.signing.store.file=$FCI_KEYSTORE_PATH \
+            -Pandroid.injected.signing.store.password=$KEYSTORE_PASSWORD \
+            -Pandroid.injected.signing.key.alias=$KEY_ALIAS \
+            -Pandroid.injected.signing.key.password=$KEY_PASSWORD \
+            --stacktrace
+      
+      - name: Build Release Bundle (AAB)
+        script: |
+          ./gradlew bundleRelease \
+            -Pandroid.injected.signing.store.file=$FCI_KEYSTORE_PATH \
+            -Pandroid.injected.signing.store.password=$KEYSTORE_PASSWORD \
+            -Pandroid.injected.signing.key.alias=$KEY_ALIAS \
+            -Pandroid.injected.signing.key.password=$KEY_PASSWORD
+    
+    artifacts:
+      - app/build/outputs/apk/release/app-release.apk
+      - app/build/outputs/bundle/release/app-release.aab
+    
+    publishing:
+      email:
+        recipients:
+          - your-email@example.com
+        notify:
+          success: true
+          failure: true
+      slack:
+        channel: "#builds"
+        notify_on_build_start: true
+        notify:
+          success: true
+          failure: true
