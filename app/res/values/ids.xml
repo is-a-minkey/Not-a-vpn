@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <id name="btnInfo" />
+    <id name="tvStatus" />
+    <id name="spinnerProtocol" />
+    <id name="btnAddSsh" />
+    <id name="etSearch" />
+    <id name="progressBar" />
+    <id name="tvProgress" />
+    <id name="spinnerCountry" />
+    <id name="btnGlow" />
+    <id name="btnConnect" />
+    <id name="tvSubStatus" />
+    <id name="cbKillSwitch" />
+    <id name="killSwitchCard" />
+    <id name="errorCard" />
+    <id name="tvError" />
+    <id name="statsCard" />
+    <id name="tvProtocol" />
+    <id name="tvDuration" />
+    <id name="tvPing" />
+    <id name="tvServer" />
+    <id name="tvPublicIp" />
+    <id name="btnCopyIp" />
+    <id name="tvDown" />
+    <id name="tvUp" />
+    <id name="tvRx" />
+    <id name="tvTx" />
+    <id name="tvHandshake" />
+    <id name="tvWgVersion" />
+    <id name="btnWgUpdate" />
+    <id name="btnSplitTunnel" />
+    <id name="btnRefresh" />
+    <id name="btnAddWireGuard" />
+</resources>

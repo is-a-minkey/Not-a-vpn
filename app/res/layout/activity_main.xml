@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:background="@drawable/bg_app_gradient" android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:padding="20.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" android:layout_marginBottom="4.0dp">
+            <ImageView android:layout_width="44.0dp" android:layout_height="44.0dp" android:src="@drawable/ic_launcher" android:layout_marginEnd="12.0dp" />
+            <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0">
+                <TextView android:textSize="22.0sp" android:textStyle="bold" android:textColor="@color/text_primary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="not a vpn" />
+                <TextView android:textSize="11.0sp" android:textColor="@color/text_tertiary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Private · Fast · Open Source" />
+            </LinearLayout>
+            <TextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="@color/cyan" android:gravity="center" android:id="@id/btnInfo" android:background="@drawable/bg_pill_dark" android:focusable="true" android:clickable="true" android:layout_width="32.0dp" android:layout_height="32.0dp" android:text="?" android:layout_marginEnd="8.0dp" />
+            <TextView android:textSize="10.0sp" android:textStyle="bold" android:textColor="@color/text_secondary" android:id="@id/tvStatus" android:background="@drawable/bg_pill_dark" android:paddingLeft="10.0dp" android:paddingTop="5.0dp" android:paddingRight="10.0dp" android:paddingBottom="5.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="OFFLINE" android:letterSpacing="0.15" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="18.0dp">
+            <ImageView android:layout_width="14.0dp" android:layout_height="14.0dp" android:src="@drawable/ic_source_globe" android:layout_marginEnd="6.0dp" />
+            <TextView android:textSize="11.0sp" android:textColor="@color/text_tertiary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Free servers via VPNBook" />
+        </LinearLayout>
+        <TextView android:textSize="10.0sp" android:textStyle="bold" android:textColor="@color/text_tertiary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="6.0dp" android:text="PROTOCOL" android:letterSpacing="0.15" />
+        <Spinner android:id="@id/spinnerProtocol" android:background="@drawable/bg_pill_dark" android:paddingLeft="14.0dp" android:paddingRight="14.0dp" android:layout_width="match_parent" android:layout_height="48.0dp" android:layout_marginBottom="18.0dp" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="6.0dp">
+            <TextView android:textSize="10.0sp" android:textStyle="bold" android:textColor="@color/text_tertiary" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="SERVER" android:layout_weight="1.0" android:letterSpacing="0.15" />
+            <TextView android:textSize="11.0sp" android:textStyle="bold" android:textColor="@color/cyan" android:id="@id/btnAddSsh" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="+ Add SSH" android:layout_marginEnd="14.0dp" />
+            <TextView android:textSize="11.0sp" android:textStyle="bold" android:textColor="@color/cyan" android:id="@id/btnAddWireGuard" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="+ Add WireGuard" />
+        </LinearLayout>
+        <EditText android:textColor="@color/text_primary" android:textColorHint="@color/text_tertiary" android:id="@id/etSearch" android:background="@drawable/bg_pill_dark" android:paddingLeft="14.0dp" android:paddingRight="14.0dp" android:layout_width="match_parent" android:layout_height="44.0dp" android:layout_marginBottom="6.0dp" android:hint="Search servers…" android:singleLine="true" android:inputType="textFilter" />
+        <ProgressBar android:id="@id/progressBar" android:layout_width="match_parent" android:layout_height="4.0dp" android:layout_marginBottom="6.0dp" android:progressDrawable="@drawable/bg_progress" style="?android:attr/progressBarStyleHorizontal" />
+        <TextView android:textSize="11.0sp" android:textColor="@color/text_secondary" android:id="@id/tvProgress" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8.0dp" android:text="Loading…" />
+        <Spinner android:enabled="false" android:id="@id/spinnerCountry" android:background="@drawable/bg_pill_dark" android:paddingLeft="14.0dp" android:paddingRight="14.0dp" android:layout_width="match_parent" android:layout_height="54.0dp" android:layout_marginBottom="6.0dp" />
+        <TextView android:textSize="10.0sp" android:textColor="@color/text_tertiary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="22.0dp" android:text="Long-press to copy hostname" />
+        <FrameLayout android:layout_gravity="center" android:layout_width="200.0dp" android:layout_height="200.0dp">
+            <View android:layout_gravity="center" android:id="@id/btnGlow" android:background="@drawable/bg_btn_glow" android:layout_width="200.0dp" android:layout_height="200.0dp" />
+            <Button android:enabled="false" android:textSize="17.0sp" android:textStyle="bold" android:textColor="#ffffff" android:layout_gravity="center" android:id="@id/btnConnect" android:background="@drawable/bg_btn_idle" android:layout_width="156.0dp" android:layout_height="156.0dp" android:text="Connect" android:elevation="6.0dp" />
+        </FrameLayout>
+        <TextView android:textSize="11.0sp" android:textColor="@color/text_tertiary" android:gravity="center" android:id="@id/tvSubStatus" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:layout_marginBottom="18.0dp" android:text="" />
+        <LinearLayout android:orientation="horizontal" android:background="@drawable/bg_card" android:padding="16.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10.0dp">
+            <ImageView android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginTop="2.0dp" android:src="@drawable/ic_lock_small" android:layout_marginEnd="14.0dp" />
+            <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0">
+                <TextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="@color/text_primary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Kill Switch" />
+                <TextView android:textSize="12.0sp" android:textColor="@color/text_tertiary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Block traffic if tunnel drops" />
+            </LinearLayout>
+            <CheckBox android:id="@id/cbKillSwitch" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:id="@id/killSwitchCard" android:background="@drawable/bg_card_error" android:padding="14.0dp" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10.0dp">
+            <TextView android:textSize="12.0sp" android:textStyle="bold" android:textColor="@color/red" android:gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Kill Switch Active — all traffic blocked outside tunnel" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/errorCard" android:background="@drawable/bg_card_error" android:padding="14.0dp" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10.0dp">
+            <TextView android:textSize="13.0sp" android:textColor="@color/red" android:id="@id/tvError" android:layout_width="match_parent" android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:id="@id/statsCard" android:background="@drawable/bg_card" android:padding="18.0dp" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10.0dp">
+            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="14.0dp">
+                <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0">
+                    <TextView android:textSize="10.0sp" android:textColor="@color/text_tertiary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="PROTOCOL" android:letterSpacing="0.1" />
+                    <TextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="@color/cyan" android:id="@id/tvProtocol" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="—" />
+                </LinearLayout>
+                <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0">
+                    <TextView android:textSize="10.0sp" android:textColor="@color/text_tertiary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="DURATION" android:letterSpacing="0.1" />
+                    <TextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="@color/text_primary" android:id="@id/tvDuration" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="00:00:00" />
+                </LinearLayout>
+                <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0">
+                    <TextView android:textSize="10.0sp" android:textColor="@color/text_tertiary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="PING" android:letterSpacing="0.1" />
+                    <TextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="@color/green" android:id="@id/tvPing" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="—" />
+                </LinearLayout>
+            </LinearLayout>
+            <View android:background="@color/card_border" android:layout_width="match_parent" android:layout_height="1.0dp" android:layout_marginBottom="12.0dp" />
+            <TextView android:textSize="10.0sp" android:textColor="@color/text_tertiary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="SERVER" android:letterSpacing="0.1" />
+            <TextView android:textSize="12.0sp" android:textColor="@color/text_secondary" android:id="@id/tvServer" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:layout_marginBottom="10.0dp" android:text="—" />
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="12.0dp">
+                <TextView android:textSize="10.0sp" android:textColor="@color/text_tertiary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="PUBLIC IP" android:layout_marginEnd="8.0dp" android:letterSpacing="0.1" />
+                <TextView android:textSize="12.0sp" android:textColor="@color/text_secondary" android:id="@id/tvPublicIp" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="—" android:layout_weight="1.0" />
+                <Button android:textSize="10.0sp" android:textColor="@color/cyan" android:id="@id/btnCopyIp" android:background="@drawable/bg_pill_dark" android:paddingLeft="10.0dp" android:paddingTop="0.0dp" android:paddingRight="10.0dp" android:paddingBottom="0.0dp" android:layout_width="wrap_content" android:layout_height="30.0dp" android:text="Copy" />
+            </LinearLayout>
+            <View android:background="@color/card_border" android:layout_width="match_parent" android:layout_height="1.0dp" android:layout_marginBottom="12.0dp" />
+            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="12.0dp">
+                <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0">
+                    <TextView android:textSize="10.0sp" android:textColor="@color/text_tertiary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="↓ DOWNLOAD" android:letterSpacing="0.1" />
+                    <TextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="@color/green" android:id="@id/tvDown" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="—" />
+                </LinearLayout>
+                <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0">
+                    <TextView android:textSize="10.0sp" android:textColor="@color/text_tertiary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="↑ UPLOAD" android:letterSpacing="0.1" />
+                    <TextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="@color/amber" android:id="@id/tvUp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="—" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="12.0dp">
+                <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0">
+                    <TextView android:textSize="10.0sp" android:textColor="@color/text_tertiary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="TOTAL RX" android:letterSpacing="0.1" />
+                    <TextView android:textSize="13.0sp" android:textColor="@color/text_secondary" android:id="@id/tvRx" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="0 B" />
+                </LinearLayout>
+                <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0">
+                    <TextView android:textSize="10.0sp" android:textColor="@color/text_tertiary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="TOTAL TX" android:letterSpacing="0.1" />
+                    <TextView android:textSize="13.0sp" android:textColor="@color/text_secondary" android:id="@id/tvTx" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="0 B" />
+                </LinearLayout>
+                <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0">
+                    <TextView android:textSize="10.0sp" android:textColor="@color/text_tertiary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="HANDSHAKE" android:letterSpacing="0.1" />
+                    <TextView android:textSize="13.0sp" android:textColor="@color/green" android:id="@id/tvHandshake" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="—" />
+                </LinearLayout>
+            </LinearLayout>
+            <View android:background="@color/card_border" android:layout_width="match_parent" android:layout_height="1.0dp" android:layout_marginBottom="10.0dp" />
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView android:textSize="11.0sp" android:textColor="@color/text_tertiary" android:id="@id/tvWgVersion" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="WireGuard —" android:layout_weight="1.0" />
+                <Button android:textSize="10.0sp" android:textColor="@color/cyan" android:id="@id/btnWgUpdate" android:background="@drawable/bg_pill_dark" android:paddingLeft="10.0dp" android:paddingTop="0.0dp" android:paddingRight="10.0dp" android:paddingBottom="0.0dp" android:layout_width="wrap_content" android:layout_height="30.0dp" android:text="Check Update" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10.0dp">
+            <Button android:textSize="12.0sp" android:textColor="@color/text_secondary" android:id="@id/btnSplitTunnel" android:background="@drawable/bg_pill_dark" android:layout_width="0.0dp" android:layout_height="44.0dp" android:text="Split Tunnel" android:layout_weight="1.0" android:layout_marginEnd="8.0dp" />
+            <Button android:textSize="12.0sp" android:textColor="@color/text_secondary" android:id="@id/btnRefresh" android:background="@drawable/bg_pill_dark" android:layout_width="0.0dp" android:layout_height="44.0dp" android:text="Refresh Servers" android:layout_weight="1.0" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
