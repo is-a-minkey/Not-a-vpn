@@ -1,4 +1,4 @@
-# not-a-vpn
+# not- a-vpn
 
 A VPN client for Android (package `com.vpnapp`) supporting three tunnel
 backends side by side: **WireGuard**, **SSH tunneling**, and **PPTP**
